@@ -1,12 +1,15 @@
 package tower;
 
-class WeatherTower extends Tower {
+import aircraft.Aircraft.Coordinates;
+import weather.WeatherProvider;
+
+public class WeatherTower extends Tower {
 
 	public String getWeather(Coordinates coordinates) {
 		return WeatherProvider.getWeatherProvider().getCurrentWeather(coordinates);
 	}
 
-	void changeWeather() {
+	public void changeWeather() {
 		conditionsChanged();
 	}
 }

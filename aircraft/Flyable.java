@@ -1,7 +1,9 @@
 package aircraft;
 
-interface Flyable {
+import tower.WeatherTower;
+
+public interface Flyable {
 
 	void updateConditions();
-	registerTower(WeatherTower tower);
+	void registerTower(WeatherTower tower);
 }

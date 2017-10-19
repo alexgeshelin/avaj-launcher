@@ -1,8 +1,9 @@
 package weather;
 
-import java.util.Random
+import java.util.Random;
+import aircraft.Aircraft.Coordinates;
 
-class WeatherProvider {
+public class WeatherProvider {
 	private WeatherProvider provider = null;
 
 	private Random random;
@@ -19,7 +20,7 @@ class WeatherProvider {
 		return provider;
 	}
 
-	public getCurrentWeather(Coordinates coordinates) {
+	public String getCurrentWeather(Coordinates coordinates) {
 		return weather[this.random.nextInt(3)];
 	}
 }

@@ -1,13 +1,13 @@
 package aircraft;
 
-class Aircraft {
+public class Aircraft {
 
 	protected long id;
 	protected String name;
 	protected Coordinates coordinates;
 	static private long idCounter = 0;
 
-	class Coordinates {
+	public class Coordinates {
 
 		private int longitude;
 		private int latitude;

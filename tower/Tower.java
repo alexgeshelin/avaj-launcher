@@ -1,8 +1,12 @@
 package tower;
 
+import java.util.ArrayList;
+import aircraft.Aircraft;
+import aircraft.Flyable;
+
 class Tower {
 
-	private ArrayList<Flyable> observers = new ArrayList();
+	private ArrayList<Flyable> observers = new ArrayList<Flyable>();
 
 	public void register(Flyable flyable) {
 		observers.add(flyable);
@@ -12,7 +16,7 @@ class Tower {
 		observers.remove(flyable);
 	}
 
-	proteted void conditionsChanged() {
+	protected void conditionsChanged() {
 		for (Flyable flyable : observers)
 			flyable.updateConditions();
 	}
