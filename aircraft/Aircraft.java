@@ -30,6 +30,23 @@ public class Aircraft {
 		int getHeight() {
 			return this.height;
 		}
+
+		public void setLongitude(int longitude) {
+			this.longitude = longitude;
+		}
+
+		public void setLatitude(int latitude) {
+			this.latitude = latitude;
+		}
+
+		public void setHeight(int height) {
+			if (height > 100)
+				height = 100;
+			else if (height < 0)
+				height = 0;
+			else
+				this.height = height;
+		}
 	}
 
 	protected Aircraft(String name, Coordinates coordinates) {
