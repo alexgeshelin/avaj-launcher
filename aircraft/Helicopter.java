@@ -10,8 +10,8 @@ class Helicopter extends Aircraft implements Flyable {
 								"It is raining heavily",
 								"I can't see anything"};
 
-	Helicopter(String name, Coordinates coordinates) {
-		super(name, coordinates);
+	Helicopter(String name, int longitude, int latitude, int height) {
+		super(name, longitude, latitude, height);
 	}
 
 	public void updateConditions() {

@@ -10,8 +10,8 @@ class JetPlane extends Aircraft implements Flyable {
 								"Turning windshields on",
 								"Wish i had headlights"};
 
-	JetPlane(String name, Coordinates coordinates) {
-		super(name, coordinates);
+	JetPlane(String name, int longitude, int latitude, int height) {
+		super(name, longitude, latitude, height);
 	}
 
 	public void updateConditions() {

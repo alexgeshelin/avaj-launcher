@@ -4,7 +4,7 @@ import java.util.Random;
 import aircraft.Aircraft.Coordinates;
 
 public class WeatherProvider {
-	private WeatherProvider provider = null;
+	private static WeatherProvider provider = null;
 
 	private Random random;
 

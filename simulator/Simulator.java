@@ -21,6 +21,11 @@ public class Simulator
 	}
 
 	public static void main(String[] args) {
+		if (args.length == 0)
+		{
+			System.err.println("Give scenario as an argument.");
+			System.exit(0);
+		}
 		Simulator simulation = new Simulator();
 		simulation.readScenario(args);
 		simulation.checkScenario();
@@ -47,7 +52,7 @@ public class Simulator
 		}
 		while (it.hasNext()) {
 			if (!it.next().matches(
-				"(Baloon|Helicopter|JetPlane) [a-zA-Z0-9]+ [0-9]+ [0-9]+ [0-9]+")) {
+				"(Balloon|Helicopter|JetPlane) [a-zA-Z0-9]+ [0-9]+ [0-9]+ [0-9]+")) {
 				System.err.println("Invalid scenario.");
 				System.exit(0);
 			}

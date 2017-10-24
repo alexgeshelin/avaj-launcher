@@ -10,8 +10,8 @@ class Balloon extends Aircraft implements Flyable {
 								"My balloon is having a shower.",
 								"I feel like a hedgehog."};
 
-	Balloon(String name, Coordinates coordinates) {
-		super(name, coordinates);
+	Balloon(String name, int longitude, int latitude, int height) {
+		super(name, longitude, latitude, height);
 	}
 
 	public void updateConditions() {

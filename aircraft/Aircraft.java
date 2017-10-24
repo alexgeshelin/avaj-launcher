@@ -49,9 +49,9 @@ public class Aircraft {
 		}
 	}
 
-	protected Aircraft(String name, Coordinates coordinates) {
+	protected Aircraft(String name, int longitude, int latitude, int height) {
 		this.name = name;
-		this.coordinates = coordinates;
+		this.coordinates = this.new Coordinates(longitude, latitude, height);
 		this.id = nextId();
 	}
 
