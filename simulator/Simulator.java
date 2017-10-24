@@ -1,5 +1,7 @@
 package simulator;
 
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -15,6 +17,19 @@ public class Simulator
 	private List<String> scenario;
 	private int cycles;
 	private WeatherTower tower;
+	static private BufferedWriter file;
+
+	static {
+		try
+		{
+			file = new BufferedWriter(new FileWriter("simulation.txt"));
+		}
+		catch (IOException e)
+		{
+			System.err.println("Error: Failed to create file.");
+			System.exit(0);
+		}
+	}
 
 	Simulator() {
 		tower = new WeatherTower();
@@ -31,6 +46,24 @@ public class Simulator
 		simulation.checkScenario();
 		simulation.loadScenario();
 		simulation.startSimulation();
+		try {
+			file.close();
+		}
+		catch (IOException e) {
+			System.err.println("Error: Failed to close file");
+		}
+	}
+
+	public static void log(String entry) {
+		try {
+			file.write(entry);
+			file.newLine();
+		}
+		catch (IOException e)
+		{
+			System.err.println("Error: Failed writing to file.");
+			System.exit(0);
+		}
 	}
 
 	void readScenario(String[] args) {
@@ -69,6 +102,7 @@ public class Simulator
 				Integer.parseInt(entry[3]),
 				Integer.parseInt(entry[4]));
 			tower.register(aircraft);
+			aircraft.registerTower(this.tower);
 		}
 	}
 

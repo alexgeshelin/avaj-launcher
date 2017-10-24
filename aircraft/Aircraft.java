@@ -59,4 +59,16 @@ public class Aircraft {
 		idCounter++;
 		return idCounter;
 	}
+
+	public long getId() {
+		return id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public Coordinates getCoordinates() {
+		return coordinates;
+	}
 }

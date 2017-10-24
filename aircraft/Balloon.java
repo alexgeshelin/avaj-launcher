@@ -1,5 +1,6 @@
 package aircraft;
 
+import simulator.Simulator;
 import tower.WeatherTower;
 
 class Balloon extends Aircraft implements Flyable {
@@ -17,23 +18,23 @@ class Balloon extends Aircraft implements Flyable {
 	public void updateConditions() {
 		String weather = this.tower.getWeather(this.coordinates);
 		if (weather.equals("SNOW")) {
-			System.out.println("Baloon#" + this.name +"(" + this.id + "): "
+			Simulator.log("Balloon#" + this.name +"(" + this.id + "): "
 					+ message[0]);
 			this.coordinates.setHeight(this.coordinates.getHeight() - 15);
 		}
 		else if (weather.equals("SUN")) {
-			System.out.println("Baloon#" + this.name +"(" + this.id + "): "
+			Simulator.log("Balloon#" + this.name +"(" + this.id + "): "
 					+ message[1]);
 			this.coordinates.setLongitude(this.coordinates.getLongitude() + 2);
 			this.coordinates.setHeight(this.coordinates.getHeight() + 4);
 		}
 		else if (weather.equals("RAIN")) {
-			System.out.println("Baloon#" + this.name +"(" + this.id + "): "
+			Simulator.log("Balloon#" + this.name +"(" + this.id + "): "
 					+ message[2]);
 			this.coordinates.setHeight(this.coordinates.getHeight() - 5);
 		}
 		else if (weather.equals("FOG")) {
-			System.out.println("Baloon#" + this.name +"(" + this.id + "): "
+			Simulator.log("Balloon#" + this.name +"(" + this.id + "): "
 					+ message[3]);
 			this.coordinates.setHeight(this.coordinates.getHeight() - 3);
 		}
@@ -43,5 +44,17 @@ class Balloon extends Aircraft implements Flyable {
 
 	public void registerTower(WeatherTower tower) {
 		this.tower = tower;
+	}
+
+	public String getSignature() {
+		String signature = "Balloon" + "#" + this.name + "(" + this.id + ")";
+		return signature;
+	}
+
+	public boolean hasLanded() {
+		if (this.coordinates.getHeight() == 0)
+			return true;
+		else
+			return false;
 	}
 }
